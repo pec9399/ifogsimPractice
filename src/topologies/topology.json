@@ -1,0 +1,94 @@
+{
+    "nodes": [
+        {
+            "level": 0,
+            "upBw": 1000,
+            "ratePerMips": 1000.0,
+            "name": "Cloud Server",
+            "type": "FOG_DEVICE",
+            "mips": 5000,
+            "ram": 45000,
+            "downBw": 1200
+        },
+        {
+            "sensorType": "Camera",
+            "name": "video2",
+            "type": "SENSOR",
+            "distribution": 2,
+            "value": 2000.0
+        },
+        {
+            "sensorType": "Camera",
+            "name": "video3",
+            "type": "SENSOR",
+            "distribution": 2,
+            "value": 3000.0
+        },
+        {
+            "sensorType": "Camera",
+            "name": "video1",
+            "type": "SENSOR",
+            "distribution": 2,
+            "value": 1000.0
+        },
+        {
+            "sensorType": "Camera",
+            "name": "video4",
+            "type": "SENSOR",
+            "distribution": 2,
+            "value": 4000.0
+        },
+        {
+            "level": 1,
+            "upBw": 800,
+            "ratePerMips": 400.0,
+            "name": "Busan Server",
+            "type": "FOG_DEVICE",
+            "mips": 1000,
+            "ram": 3000,
+            "downBw": 1000
+        },
+        {
+            "level": 1,
+            "upBw": 1000,
+            "ratePerMips": 500.0,
+            "name": "Daejeon Server",
+            "type": "FOG_DEVICE",
+            "mips": 4000,
+            "ram": 4500,
+            "downBw": 1100
+        }
+    ],
+    "links": [
+        {
+            "latency": 200.0,
+            "destination": "Busan Server",
+            "source": "Cloud Server"
+        },
+        {
+            "latency": 200.0,
+            "destination": "Daejeon Server",
+            "source": "Cloud Server"
+        },
+        {
+            "latency": 100.0,
+            "destination": "Busan Server",
+            "source": "video1"
+        },
+        {
+            "latency": 100.0,
+            "destination": "video2",
+            "source": "Busan Server"
+        },
+        {
+            "latency": 100.0,
+            "destination": "video3",
+            "source": "Daejeon Server"
+        },
+        {
+            "latency": 100.0,
+            "destination": "video4",
+            "source": "Daejeon Server"
+        }
+    ]
+}
